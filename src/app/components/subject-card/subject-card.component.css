@@ -1,0 +1,10 @@
+mat-card {
+    width: 25rem;
+    height: 5rem;
+    padding: 0;
+}
+
+.subject-name {
+    background-color: var(--primary-color);
+    color: white;
+}

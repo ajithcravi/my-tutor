@@ -1,0 +1,36 @@
+mat-toolbar {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+mat-drawer-content {
+    height: 100vh;
+    background-color: white;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-family: var(--logo-font);
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+p {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: var(--font-size);
+}
+
+.logout {
+    color: var(--error-red);
+}
+
+.nav-button {
+    padding: 1rem 1rem;
+    width: 100%;
+    justify-content: left;
+}

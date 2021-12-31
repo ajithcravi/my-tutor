@@ -1,0 +1,49 @@
+<form [formGroup]="detailsForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" placeholder="John Doe">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input disabled matInput value="sample@email.com">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input type="number" matInput formControlName="mobile" placeholder="9876543210">
+        <mat-hint>10 digit mobile number</mat-hint>
+    </mat-form-field>
+
+    <br>
+    <br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Date Of Birth</mat-label>
+        <input [readonly]="true" (click)="picker.open()" formControlName="dob" matInput [matDatepicker]="picker" placeholder="DD/MM/YYYY">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- <br>
+
+    <div class="checkboxDiv">
+        <mat-checkbox formControlName="student" color="primary">Student</mat-checkbox>
+        <mat-checkbox formControlName="tutor" color="primary">Tutor</mat-checkbox>
+    </div>
+
+    <br> -->
+
+    <!-- <app-language-input [formGroup]="detailsForm" [matcher]="languageMatcher"></app-language-input> -->
+
+    <br>
+
+    <button mat-flat-button class="outlineButton">Change Password</button>
+
+    <button mat-flat-button type="submit" class="solidButton">Update</button>
+
+</form>

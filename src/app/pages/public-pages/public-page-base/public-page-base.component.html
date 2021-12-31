@@ -1,0 +1,8 @@
+<mat-grid-list cols="{{isSmallScreen? 2 : 5}}" rowHeight="100%">
+    <mat-grid-tile *ngIf="!isSmallScreen" class="publicLeft" colspan="3">
+        <app-half-page-logo></app-half-page-logo>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+        <router-outlet></router-outlet>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,46 @@
+<form [formGroup]="signinForm" (ngSubmit)="signin()">
+
+    <p *ngIf="isSmallScreen" class="logo">
+        my tutor
+    </p>
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" [errorStateMatcher]="emailMatcher" placeholder="sample@email.com">
+        <mat-error *ngIf="signinForm.get('email')?.errors?.email && !signinForm.get('email')?.errors?.required">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="signinForm.get('email')?.errors?.maxlength && !signinForm.get('email')?.errors?.required">
+            Maximum 200 characters
+        </mat-error>
+        <mat-error *ngIf="signinForm.get('email')?.errors?.required">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" [errorStateMatcher]="passwordMatcher" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="signinForm.get('password')?.errors?.minlength && !signinForm.get('password')?.errors?.required">
+            Minimum 8 characters
+        </mat-error>
+        <mat-error *ngIf="signinForm.get('password')?.errors?.required">
+            Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+    <br>
+
+    <button mat-flat-button color="primary" type="submit" class="solidButton">Sign In</button>
+
+    <br>
+
+    <button routerLink="/signup" mat-stroked-button color="primary" class="outlineButton">Sign Up</button>
+</form>

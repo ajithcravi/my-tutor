@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "Baloo-Bhai-2";
+    src: local("Baloo-Bhai-2"), url(./assets/fonts/Baloo_Bhai_2/static/BalooBhai2-ExtraBold.ttf) format("truetype");
+}
+
+:root {
+    --primary-color: #3F51B5;
+    --success-green: #285D34;
+    --error-red: #E91E63;
+    --font-color: #242526;
+    --logo-font: "Baloo-Bhai-2";
+    --font-size: 14px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.publicLeft>.mat-grid-tile-content {
+    justify-content: flex-end !important;
+}
+
+.mat-simple-snackbar,
+.mat-simple-snackbar-action {
+    color: white;
+}
+
+.spinner-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.snackbar-error {
+    background-color: var(--error-red);
+}
+
+.snackbar-success {
+    background-color: var(--success-green);
+}
+
+.snackbar-info {
+    background-color: var(--primary-color);
+}

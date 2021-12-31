@@ -1,0 +1,21 @@
+<mat-card>
+    <mat-grid-list cols="{{editableView? 6 : 5}}" rowHeight="100%">
+        <mat-grid-tile colspan="3" class="subject-name">
+            {{subjectName}}
+            <br> Level: {{level}}
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2">
+            INR {{fee}}/{{chargedPer}}
+        </mat-grid-tile>
+        <!-- <mat-grid-tile *ngIf="editableView" colspan="1">
+            <button mat-icon-button>
+                <mat-icon color="primary">edit</mat-icon>
+            </button>
+        </mat-grid-tile> -->
+        <mat-grid-tile *ngIf="editableView" colspan="1">
+            <button mat-icon-button (click)="handleClick()">
+                <mat-icon color="accent">delete</mat-icon>
+            </button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-card>

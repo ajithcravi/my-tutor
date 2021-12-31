@@ -1,0 +1,32 @@
+mat-tab-group {
+    padding: 0 16px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.flex-container {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.solidButton {
+    width: 100%;
+    background-color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+.solidButton-error {
+    width: 100%;
+    background-color: var(--error-red);
+    color: white;
+}
+
+.details-card {
+    min-width: 300px;
+    background-color: var(--primary-color);
+    color: white;
+}

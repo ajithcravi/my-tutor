@@ -1,0 +1,23 @@
+mat-form-field {
+    width: 100%;
+}
+
+.logo {
+    font-family: var(--logo-font);
+    font-size: 2rem;
+    color: var(--primary-color);
+    padding: 10px;
+    text-align: center;
+}
+
+.solidButton {
+    width: 100%;
+    background-color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.outlineButton {
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    margin-top: 0.75rem;
+}

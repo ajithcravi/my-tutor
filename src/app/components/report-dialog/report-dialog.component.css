@@ -1,0 +1,10 @@
+mat-form-field {
+    width: 25rem;
+}
+
+.solidButton-error {
+    width: 100%;
+    background-color: var(--error-red);
+    color: white;
+    margin-top: 0.75rem;
+}

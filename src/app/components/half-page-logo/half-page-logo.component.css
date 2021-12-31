@@ -1,0 +1,6 @@
+.half-page-logo {
+    font-family: var(--logo-font);
+    font-size: 4rem;
+    color: white;
+    padding: 10px;
+}

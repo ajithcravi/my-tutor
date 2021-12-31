@@ -1,0 +1,43 @@
+<form [formGroup]="courseForm" (ngSubmit)="addCourse()">
+    <div>
+        <mat-form-field class="dialog-input" appearance="outline">
+            <mat-label>Subject</mat-label>
+            <input formControlName="courseName" [errorStateMatcher]="courseNameMatcher" matInput placeholder="Mathematics">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Fees in INR</mat-label>
+            <input formControlName="fee" [errorStateMatcher]="feeMatcher" matInput placeholder="500">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Fees per</mat-label>
+            <mat-select formControlName="chargedPer" [errorStateMatcher]="chargedPerMatcher">
+                <mat-option *ngFor="let per of pers" [value]="per.value">
+                    {{per.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Level</mat-label>
+            <mat-select formControlName="level" [errorStateMatcher]="levelMatcher">
+                <mat-option *ngFor="let level of levels" [value]="level.value">
+                    {{level.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <br>
+
+        <button mat-flat-button type="submit" class="solidButton">Create</button>
+        <button mat-flat-button class="solidButton-error" (click)="onClickCancel()">Cancel</button>
+
+    </div>
+</form>

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="searchBox">
+        <form [formGroup]="searchForm" (ngSubmit)="search()">
+            <mat-form-field appearance="outline">
+                <mat-label>Search</mat-label>
+                <input matInput formControlName="searchTerm" placeholder="Search">
+            </mat-form-field>
+            <button mat-flat-button type="submit" class="solidButton">Search</button>
+        </form>
+    </div>
+    <div>
+        <div *ngIf="courseTeachers">
+            <div class="courseCard" *ngFor="let teacher of courseTeachers">
+                <div *ngFor="let course of teacher.courses">
+                    <app-course-card [subjectName]="course.course_name" [fee]="course.fee" [chargedPer]="course.charged_per" [level]="course.level" [tutor]="teacher.user.username" [userId]="teacher.user.user_id"></app-course-card>
+                </div>
+            </div>
+            <h4 *ngIf="courseTeachers.length === 0">
+                Sorry! No course found.
+            </h4>
+        </div>
+    </div>
+</div>

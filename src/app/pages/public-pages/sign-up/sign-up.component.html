@@ -1,0 +1,124 @@
+<form [formGroup]="signupForm" (ngSubmit)="signup()">
+    <p *ngIf="isSmallScreen" class="logo">
+        my tutor
+    </p>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input formControlName="username" matInput placeholder="John Doe" [errorStateMatcher]="usernameMatcher">
+        <mat-error *ngIf="signupForm.get('username')?.errors?.maxlength && !signupForm.get('username')?.errors?.required">
+            Maximum 200 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('username')?.errors?.minlength && !signupForm.get('username')?.errors?.required">
+            Minimum 2 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('username')?.errors?.required">
+            Username is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="sample@email.com" [errorStateMatcher]="emailMatcher">
+        <mat-error *ngIf="signupForm.get('email')?.errors?.email && !signupForm.get('email')?.errors?.required">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('email')?.errors?.maxlength && !signupForm.get('email')?.errors?.required">
+            Maximum 200 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('email')?.errors?.required">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input formControlName="mobile" type="number" matInput placeholder="9876543210" [errorStateMatcher]="mobileMatcher">
+        <mat-hint>10 digit mobile number</mat-hint>
+        <mat-error *ngIf="(signupForm.get('mobile')?.errors?.min || signupForm.get('mobile')?.errors?.max) && !signupForm.get('mobile')?.errors?.required">
+            Enter only 10 digit mobile number
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('mobile')?.errors?.required">
+            Mobile number is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+    <br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Date Of Birth</mat-label>
+        <input [readonly]="true" (click)="picker.open()" formControlName="dob" matInput [matDatepicker]="picker" placeholder="DD/MM/YYYY" [errorStateMatcher]="dobMatcher">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="signupForm.get('dob')?.errors?.required">
+            Date of birth is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <!-- <br>
+
+    <app-language-input [matcher]="languageMatcher" [formGroup]="signupForm"></app-language-input> -->
+
+    <br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="signupForm.get('password')?.errors?.minlength && !signupForm.get('password')?.errors?.required">
+            Minimum 8 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('password')?.errors?.required">
+            Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input formControlName="confirmPassword" matInput [type]="hideConfirm ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="signupForm.get('confirmPassword')?.errors?.minlength && !signupForm.get('confirmPassword')?.errors?.required">
+            Minimum 8 characters
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('confirmPassword')?.errors?.required">
+            Confirm Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <div>
+        <mat-radio-group formControlName="role">
+            <div class="checkboxDiv">
+                <div>
+                    <mat-radio-button color="primary" value="student">
+                        Student
+                    </mat-radio-button>
+                </div>
+                <div>
+                    <mat-radio-button color="primary" value="teacher">
+                        Tutor
+                    </mat-radio-button>
+                </div>
+            </div>
+        </mat-radio-group>
+    </div>
+
+    <br>
+    <br>
+
+    <button type="submit" mat-flat-button color="primary" class="solidButton">Sign Up</button>
+</form>
+
+<button mat-stroked-button color="primary" class="outlineButton" routerLink="/signin">Sign In</button>

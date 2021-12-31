@@ -1,0 +1,20 @@
+<mat-form-field [ngClass]="{'mat-form-field-invalid': (formGroup.get('languages')?.touched || formGroup.get('languages')?.dirty) && formGroup.get('languages')?.errors?.required}" appearance="outline">
+    <mat-label>Languages</mat-label>
+    <mat-chip-list #chipList aria-label="Language selection">
+        <mat-chip color="primary" *ngFor="let selectedLanguage of selectedLanguages" (removed)="remove(selectedLanguage)">
+            {{selectedLanguage}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+        </mat-chip>
+        <input matInput placeholder="Add language" [errorStateMatcher]="matcher" #languageInput [formControl]="$any(formGroup).get('languages')" [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let filteredLanguage of filteredLanguages | async" [value]="filteredLanguage">
+            {{filteredLanguage}}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
+<mat-error *ngIf="(formGroup.get('languages')?.touched || formGroup.get('languages')?.dirty) && formGroup.get('languages')?.errors?.required">
+    Please enter atleast one language
+</mat-error>
