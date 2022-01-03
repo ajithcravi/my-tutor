@@ -38,7 +38,7 @@ export class ProfilePageComponent implements OnInit {
   details: UserDetails;
   editableView: boolean = false;
 
-  constructor(public dialog: MatDialog, private _route: ActivatedRoute, public apiService: ApiServiceService, private _loadingService: LoadingServiceService, private _snackBar: SnackbarServiceService) { }
+  constructor(public dialog: MatDialog, private _route: ActivatedRoute, public apiService: ApiServiceService, private _loadingService: LoadingServiceService, private _snackBar: SnackbarServiceService,private router:Router) { }
 
   loadData = (id: number) => {
     this._loadingService.startLoading()
@@ -65,6 +65,15 @@ export class ProfilePageComponent implements OnInit {
     }
     )
     this._loadingService.stopLoading()
+  }
+  deleteUser(){
+    this._loadingService.startLoading()
+    this.apiService.deleteUser({userId:this.userId}).subscribe((data: any) => {
+      this._snackBar.success('user deleted successfully')
+      this.router.navigate(['/app/users'])
+    })
+    this._loadingService.stopLoading()
+
   }
 
   openDialog() {

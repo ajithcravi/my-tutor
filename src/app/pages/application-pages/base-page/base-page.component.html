@@ -10,6 +10,10 @@
             <mat-icon>search</mat-icon>
             <span>Search Course</span>            
         </button>
+        <button class="nav-button" (click)="drawer.toggle(); searchUsers()" *ngIf="isAdmin" mat-flat-button>
+            <mat-icon>search</mat-icon>
+            <span>Search User</span>            
+        </button>
         <br>
         <button class="nav-button" (click)="myProfile()" mat-flat-button>
             <mat-icon>person</mat-icon>

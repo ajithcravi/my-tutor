@@ -38,7 +38,8 @@ import { CourseCardComponent } from './course-card/course-card.component';
     ReportDialogComponent,
     UserCardComponent,
     LanguageInputComponent,
-    CourseCardComponent
+    CourseCardComponent,
+    UserCardComponent
   ],
   imports: [
     CommonModule,

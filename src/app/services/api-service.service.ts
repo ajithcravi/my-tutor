@@ -34,9 +34,15 @@ export class ApiServiceService {
   searchCourse(data: any): Observable<any> {
     return this._http.get(this.baseUrl + '/search-course', {params: data}).pipe(catchError(this.handleError))
   }
+  searchUsers(data: any): Observable<any> {
+    return this._http.get(this.baseUrl + '/search-users', {params: data}).pipe(catchError(this.handleError))               //added this line
+  }
 
   deleteCourse(data: any): Observable<any> {
     return this._http.delete(this.baseUrl + '/delete-course', {body: JSON.stringify(data)}).pipe(catchError(this.handleError))
+  }
+  deleteUser(data: any): Observable<any> {
+    return this._http.delete(this.baseUrl + '/delete-user', {body: JSON.stringify(data)}).pipe(catchError(this.handleError))  //userId
   }
 
   // Error handling 

@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="searchBox">
+        <form [formGroup]="searchForm" (ngSubmit)="search()">
+            <mat-form-field appearance="outline">
+                <mat-label>Search</mat-label>
+                <input matInput formControlName="searchTerm" placeholder="Search">
+            </mat-form-field>
+            <button mat-flat-button type="submit" class="solidButton">Search By User</button>
+        </form>
+    </div>
+    <div>
+        <div *ngIf="users">
+            <div class="courseCard" *ngFor="let user of users">
+                    <app-user-card [userId]="user.user_id" [userName]="user.username" [userRole]="user.role.role_name" ></app-user-card>
+            </div>
+            <h4 *ngIf="users.length === 0">
+                Sorry! No user found.
+            </h4>
+        </div>
+    </div>
+</div>

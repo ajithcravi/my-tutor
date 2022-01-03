@@ -12,17 +12,23 @@ export class BasePageComponent implements OnInit {
 
   loadingSubscription: Subscription;
   isLoading = false;
+  isAdmin:boolean
   
-  constructor(public router: Router, private _loadingService: LoadingServiceService) { }
+  constructor(public router: Router, private _loadingService: LoadingServiceService) { 
+    this.isAdmin = false
+  }
 
   ngOnInit(): void {
     this.loadingSubscription = this._loadingService.isLoading$.pipe().subscribe(
-      (loadingStatus: boolean) => this.isLoading = loadingStatus 
-    )
+      (loadingStatus: boolean) => this.isLoading = loadingStatus )
+      this.isAdmin  = true  
   }
 
   searchCourses = () => {
     this.router.navigate(['/app/courses'])
+  }
+  searchUsers = () => {
+    this.router.navigate(['/app/users'])
   }
 
   myProfile = () => {

@@ -1,9 +1,23 @@
-img {
-    height: 100%;
-    width: 100%;
+mat-card {
+    max-width: 400px;
+    margin: 16px;
 }
 
-mat-card {
-    padding: 0;
-    margin-bottom: 0.75rem;
+mat-card-content {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px;
+}
+
+.subject-name {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.highlightPrimary {
+    color: var(--primary-color);
+}
+
+.highlightError {
+    color: var(--error-red);
 }

@@ -24,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     ProfilePageComponent,
     CreateSubjectDialog,
     CoursesComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,

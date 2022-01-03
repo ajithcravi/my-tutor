@@ -1,0 +1,30 @@
+mat-form-field {
+    width: 100%;
+}
+
+.solidButton {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.container {
+    display: flex;
+    padding: 0 16px;
+    height: 90%;
+}
+
+.searchBox {
+    align-self: center;
+    position: sticky;
+    top: 64px;
+}
+
+.courseCard {
+    display: flex;
+    flex-flow: column;
+}
+
+h4 {
+    color: var(--error-red);
+}
