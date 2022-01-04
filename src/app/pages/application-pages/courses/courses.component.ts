@@ -53,10 +53,9 @@ export class CoursesComponent implements OnInit {
     if(this.searchForm.value.searchTerm !== '') {
       this.apiService.searchCourse(this.searchForm.value).subscribe((data:[]) => {
         this.courseTeachers = data
-        console.log(data)
+        this._loadingService.stopLoading();
       })
     }
-    this._loadingService.stopLoading();
   }
 
 }

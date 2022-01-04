@@ -10,7 +10,7 @@ const routes: Routes = [
     {path: 'signup', component: SignUpComponent},
     {path: 'signin', component: SignInComponent},
     {path: 'not-found', component: NotFoundComponent},
-    {path: '', redirectTo: '/signup', pathMatch: 'full'}
+    {path: '', redirectTo: '/signin', pathMatch: 'full'}
   ]}
 ];
 

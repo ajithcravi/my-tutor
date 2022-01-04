@@ -21,3 +21,10 @@ mat-card-content {
 .highlightError {
     color: var(--error-red);
 }
+
+.solidButton {
+    width: 100%;
+    background-color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    color: white;
+}

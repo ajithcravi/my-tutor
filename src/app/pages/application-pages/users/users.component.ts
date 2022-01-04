@@ -54,10 +54,9 @@ export class UsersComponent implements OnInit {
     if(this.searchForm.value.searchTerm !== '') {
       this.apiService.searchUsers(this.searchForm.value).subscribe((data:[]) => {
         this.users = data
-       
+        this._loadingService.stopLoading();     
       })
     }
-    this._loadingService.stopLoading();
   }
 
 }

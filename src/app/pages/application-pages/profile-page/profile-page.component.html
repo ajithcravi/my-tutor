@@ -13,8 +13,8 @@
                             <br> <br> dob: <br> <strong>{{details?.userDetails?.dob}}</strong>
                         </p>
                         <div class="delete-section">
-                        <button class="delete-button" (click)="deleteUser()">Delete User</button>
-                    </div>
+                            <button *ngIf="(isAdmin && !selfProfile)" class="delete-button" (click)="deleteUser()">Delete User</button>
+                        </div>
                     </mat-card-content>
                 </mat-card>
             </div>
@@ -26,11 +26,11 @@
             <div>
 
                 <div *ngFor="let course of details?.courseDetails">
-                    <app-subject-card (clickOutput)="deleteCourse($event)" [courseId]="course.course_id" [subjectName]="course.course_name" [fee]="course.fee" [level]="course.level" [chargedPer]="course.charged_per" [editableView]="editableView"></app-subject-card>
+                    <app-subject-card (clickOutput)="deleteCourse($event)" [courseId]="course.course_id" [subjectName]="course.course_name" [fee]="course.fee" [level]="course.level" [chargedPer]="course.charged_per" [editableView]="(selfProfile || isAdmin)"></app-subject-card>
                     <br>
                 </div>
 
-                <button *ngIf="editableView" (click)="openDialog()" mat-flat-button color="primary" class="solidButton">Add Subject</button>
+                <button *ngIf="(selfProfile || isAdmin)" (click)="openDialog()" mat-flat-button color="primary" class="solidButton">Add Subject</button>
             </div>
         </div>
     </mat-tab>

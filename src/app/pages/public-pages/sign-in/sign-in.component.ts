@@ -23,7 +23,11 @@ export class SignInComponent implements OnInit {
 
   isSmallScreen: boolean = false;
 
-  constructor(private _breapointObserver: BreakpointObserver, public apiService: ApiServiceService, public router: Router, private _loadingService: LoadingServiceService) { }
+  constructor(
+    private _breapointObserver: BreakpointObserver,
+    public apiService: ApiServiceService,
+    public router: Router,
+    private _loadingService: LoadingServiceService) { }
 
   ngOnInit(): void {
     this._breapointObserver.observe('(max-width: 600px)').subscribe((state: BreakpointState) => {
@@ -45,9 +49,10 @@ export class SignInComponent implements OnInit {
   signin = () => {
     console.log(this.signinForm.value)
     this._loadingService.startLoading()
-      this.apiService.login(this.signinForm.value).subscribe((data:{user_id:number}) => {
+      this.apiService.login(this.signinForm.value).subscribe((data:{user_id:number, fk_role: number}) => {
         console.log(data)
         localStorage.setItem('myUserId', `${data.user_id}`)
+        localStorage.setItem('myRole', `${data.fk_role}`)
         this._loadingService.stopLoading()
         this.router.navigate(['/app/profile'], {queryParams: {userId: data.user_id}})
       })
